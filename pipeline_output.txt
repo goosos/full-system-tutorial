@@ -1,0 +1,21 @@
+[0] data: SPY daily, 752 bars, 2023-10-09 -> 2026-10-07
+[1] backtest: MA(20,50) gross return +26.91%, 5 trades
+[2] costs: honest tier (30 bps round-trip) -> net return +26.91%
+[3] metrics: Sharpe +0.85 | Sortino +0.90 | Calmar +0.72 | maxDD 11.49% (188 bars)
+[4] validation: 2 walk-forward folds, mean OOS Sharpe +2.10 -> holds up
+[5] overfitting: 16 trials, best Sharpe +1.06 -> DSR 0.85, PBO 0.75
+[6] sizing: win rate 55%, half-Kelly 4.5%, fixed 50% on $100k = $50,000
+[7] portfolio: MA/RSI correlation +0.09, weights ['0.50', '0.50'] -> portfolio Sharpe +1.26
+[8] robustness: 100% of MA(20,50) neighbors within 90% -> PLATEAU
+
+=== FINAL VERDICT: MA(20,50) on SPY ===
+  [PASS] positive net return
+  [PASS] OOS Sharpe > 0
+  [PASS] DSR > 0.5 (better than coin flip)
+  [FAIL] PBO < 0.5 (selection not random)
+  [PASS] on a plateau, not a peak
+
+  4/5 checks passed.
+  Verdict: MARGINAL — paper-trade first, re-check in 6 months.
+
+  Portfolio kicker: MA+RSI Sharpe +1.26 vs single +0.85.
