@@ -4,7 +4,7 @@
 
 > **✅ Tested:** vectorbt 1.1.1 · Python 3.12 · Last verified: 2026-10-08 · [Update policy](https://goosos.com/about#freshness)
 
-> **📊 Market snapshot** (as of 2026-10-08): SPY $777.22 · QQQ $757.73 · BTC $82,790 · ETH $2,566 — for context on when this was written.
+> **📊 Market snapshot** (as of 2026-10-08): SPY $777.22 · QQQ $757.73 · BTC $82,726 · ETH $2,564 — for context on when this was written.
 
 **Target keyword:** quant research system backtesting pipeline
 **Meta description:** Nine tutorials, seven modules, one pipeline. Run a complete quant research workflow end-to-end — data to verdict — and see what our MA strategy looks like after every honesty check in the series.
@@ -92,6 +92,8 @@ Let's be honest about each line:
 **Stage 5: the wrinkle.** DSR 0.85 says the best-of-16 Sharpe is probably real. But PBO 0.75 says the *selection process* looks random-ish — on a tiny 16-trial grid, picking the winner is close to luck. This is the pipeline disagreeing with itself, and that's fine: DSR asks "is *this* Sharpe real?", PBO asks "is my *process* of picking winners reliable?" Different questions, different answers.
 
 **Stage 6: sizing says be humble.** Half-Kelly suggests 4.5% — the strategy's edge per trade is thin (55% win rate, small wins). The math is telling you: this isn't a high-conviction bet.
+
+*(A note for careful readers: [Part 7](/position-sizing-that-survives) reported half-Kelly at 30.8% with an 80% win rate. The difference is methodology — Part 7 computed Kelly from trade-level stats (5 discrete trades, 4 winners), while this pipeline computes it from daily returns (55% of non-zero days positive). Trade-level Kelly is the theoretically cleaner application; the pipeline uses daily returns for automation simplicity. Both are honest; they just answer slightly different questions.)*
 
 **Stage 7: the portfolio kicker.** Adding RSI(14) (correlation +0.09) lifts Sharpe from 0.85 to 1.26. The diversifier does what [Part 8](/multi-strategy-portfolios) promised.
 
